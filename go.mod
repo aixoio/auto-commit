@@ -1,4 +1,4 @@
-module auto-commit
+module github.com/aixoio/auto-commit
 
 go 1.22.2
 
