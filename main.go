@@ -16,7 +16,7 @@ func main() {
 
 	output, _ := cmd.CombinedOutput()
 
-	res, _ := llms.GenerateFromSinglePrompt(context.TODO(), llm, "It is your job to write a git commit summary for this commit YOU MUST ONLY RESPOND WITH THE MESSAGE NO MORE TEXT also please make very detailed message but try to avoid talking about the commit in the message like don't say 'for this staged commit' use the context of the commit is the results of git status: "+string(output))
+	res, _ := llms.GenerateFromSinglePrompt(context.TODO(), llm, "It is your job to write a git commit summary for this commit YOU MUST ONLY RESPOND WITH THE MESSAGE NO MORE TEXT also please make detailed but short make sure to use the context that you have, the results of git status: "+string(output))
 
 	cmd = exec.Command("git", "add", ".")
 	cmd.Run()
