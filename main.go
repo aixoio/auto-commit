@@ -21,7 +21,7 @@ func main() {
 
 	cmd = exec.Command("git", "add", ".")
 	cmd.Run()
-	cmd = exec.Command("git", "commit", "-m", strings.TrimSpace(res))
+	cmd = exec.Command("git", "commit", "-m", strings.TrimSuffix(strings.TrimSpace(res), "\n"))
 	cmd.Run()
 
 	fmt.Println("Commited", res)
