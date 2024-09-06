@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-  llm, _ := ollama.New(ollama.WithModel("qwen2:0.5b"))
+  llm, _ := ollama.New(ollama.WithModel("qwen2:1.5b"))
 
 	cmd := exec.Command("git", "status")
 
