@@ -10,13 +10,13 @@ import (
 )
 
 func main() {
-  llm, _ := ollama.New(ollama.WithModel("qwen2:1.5b"))
+  llm, _ := ollama.New(ollama.WithModel("gemma2:2b"))
 
 	cmd := exec.Command("git", "status")
 
 	output, _ := cmd.CombinedOutput()
 
-	res, _ := llms.GenerateFromSinglePrompt(context.TODO(), llm, "It is your job to write a git commit summary for this commit YOU MUST ONLY RESPOND WITH THE MESSAGE NO MORE TEXT also please make detailed but short make sure to use the context that you have, the results of git status do not use quotes in your answer: "+string(output))
+	res, _ := llms.GenerateFromSinglePrompt(context.TODO(), llm, "It is your job to write a git commit summary for this commit YOU MUST ONLY RESPOND WITH THE MESSAGE NO MORE TEXT also please make detailed but short make sure to use the context that you have, the results of git status: "+string(output))
 
 	cmd = exec.Command("git", "add", ".")
 	cmd.Run()
