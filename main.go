@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os/exec"
+	"strings"
 
 	"github.com/tmc/langchaingo/llms"
 	"github.com/tmc/langchaingo/llms/ollama"
@@ -20,7 +21,7 @@ func main() {
 
 	cmd = exec.Command("git", "add", ".")
 	cmd.Run()
-	cmd = exec.Command("git", "commit", "-m", res)
+	cmd = exec.Command("git", "commit", "-m", strings.TrimSpace(res))
 	cmd.Run()
 
 	fmt.Println("Commited", res)
