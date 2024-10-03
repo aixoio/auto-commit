@@ -11,8 +11,7 @@ import (
 )
 
 func main() {
-  llm, _ := ollama.New(ollama.WithModel("llama3.2:1b"))
-
+  llm, _ := ollama.New(ollama.WithModel("llama3"))
 
 	cmd := exec.Command("git", "status")
 
